@@ -1,6 +1,6 @@
 import { getPodcasts } from './services/api';
 
-const podCastContainer = document.querySelector('.section__podlist-pods');
+const podCastContainer = document.querySelector('.podcast-collection');
 
 let i = 0;
 
@@ -20,7 +20,7 @@ export async function createHtml() {
 
     function createInnerArticle() {
       const innerArticle = document.createElement('article');
-      innerArticle.setAttribute('class', 'section__article-innerarticle');
+      innerArticle.setAttribute('class', 'podcast');
       innerArticle.setAttribute('tabindex', '1');
       podCastContainer.appendChild(innerArticle);
       return innerArticle;
@@ -28,7 +28,7 @@ export async function createHtml() {
 
     function createTextDiv() {
       const textDiv = document.createElement('div');
-      textDiv.setAttribute('class', 'section__article-div');
+      textDiv.setAttribute('class', 'podcast__detailsContainer');
       innerArticle.appendChild(textDiv);
       return textDiv;
     }
@@ -37,6 +37,7 @@ export async function createHtml() {
       const linkPlacement = document.createElement('a');
       const linkText = document.createTextNode('Lyssna här');
       linkPlacement.setAttribute('href', podCasts.programs[i].programurl);
+      linkPlacement.classList.add('podcast__programUrl');
       linkPlacement.setAttribute('tabindex', '1');
       linkPlacement.appendChild(linkText);
       textDiv.appendChild(linkPlacement);
