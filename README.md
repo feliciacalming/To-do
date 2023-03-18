@@ -6,7 +6,7 @@ G
 - [x] Konvertera till TypeScript
 - [ ] Enhetlig kodkvalitet
 - [x] Mobilvyn
-- [ ] Språk
+- [x] Språk
 - [ ] Rensa loggning
 - [ ] Dokumentation
 - [ ] Tillgänglighet (bilder)
