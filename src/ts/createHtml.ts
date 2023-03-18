@@ -1,26 +1,25 @@
+import { IPodcast } from './models/IPodcast';
 import { getPodcasts } from './services/api';
 
-const podCastContainer: HTMLDivElement = document.querySelector(
+const podcastContainer: HTMLDivElement = document.querySelector(
   '.podcast-collection'
 ) as HTMLDivElement;
 
-let i = 0;
-
 function createInnerArticle() {
-  const innerArticle = document.createElement('article');
+  const innerArticle: HTMLElement = document.createElement('article');
   innerArticle.setAttribute('class', 'podcast');
   return innerArticle;
 }
 
 function createTextDiv() {
-  const textDiv = document.createElement('div');
+  const textDiv: HTMLDivElement = document.createElement('div');
   textDiv.setAttribute('class', 'podcast__detailsContainer');
   return textDiv;
 }
 
 function createLink(url: string) {
-  const linkPlacement = document.createElement('a');
-  const linkText = document.createTextNode('Lyssna här');
+  const linkPlacement: HTMLAnchorElement = document.createElement('a');
+  const linkText: Text = document.createTextNode('Lyssna här');
   linkPlacement.setAttribute('href', url);
   linkPlacement.classList.add('podcast__programUrl');
   linkPlacement.appendChild(linkText);
@@ -28,7 +27,7 @@ function createLink(url: string) {
 }
 
 function createImg(image: string) {
-  const imgPlacement = document.createElement('IMG');
+  const imgPlacement: HTMLImageElement = document.createElement('img');
   imgPlacement.setAttribute('src', image);
   imgPlacement.setAttribute('width', '100');
   imgPlacement.setAttribute('height', '100');
@@ -37,39 +36,37 @@ function createImg(image: string) {
 }
 
 function createP(description: string) {
-  const descPlacement = document.createElement('p');
-  const desc = document.createTextNode(description);
+  const descPlacement: HTMLParagraphElement = document.createElement('p');
+  const desc: Text = document.createTextNode(description);
   descPlacement.classList.add('podcast__description');
   descPlacement.appendChild(desc);
   return descPlacement;
 }
 
 function createHeader(name: string) {
-  const headerPlacement = document.createElement('h2');
-  const programName = document.createTextNode(name);
+  const headerPlacement: HTMLHeadingElement = document.createElement('h2');
+  const programName: Text = document.createTextNode(name);
   headerPlacement.classList.add('podcast__title');
   headerPlacement.appendChild(programName);
   return headerPlacement;
 }
 
 export async function createHtml() {
-  const podCasts = await getPodcasts();
-  podCasts.forEach((podcast) => {
-    i++;
-
-    let innerArticle = createInnerArticle();
-    let imgPlacement = createImg(podCasts[i].socialimage);
-    let textDiv = createTextDiv();
-    let headerPlacement = createHeader(podCasts[i].name);
-    let descPlacement = createP(podCasts[i].description);
-    let linkPlacement = createLink(podCasts[i].programurl);
+  const podcasts: IPodcast[] = await getPodcasts();
+  podcasts.forEach((podcast) => {
+    let innerArticle: HTMLElement = createInnerArticle();
+    let imgPlacement: HTMLImageElement = createImg(podcast.socialimage);
+    let textDiv: HTMLDivElement = createTextDiv();
+    let headerPlacement: HTMLHeadingElement = createHeader(podcast.name);
+    let descPlacement: HTMLParagraphElement = createP(podcast.description);
+    let linkPlacement: HTMLAnchorElement = createLink(podcast.programurl);
 
     innerArticle.appendChild(imgPlacement);
     innerArticle.appendChild(textDiv);
     textDiv.appendChild(headerPlacement);
     textDiv.appendChild(descPlacement);
     textDiv.appendChild(linkPlacement);
-    podCastContainer.appendChild(innerArticle);
+    podcastContainer.appendChild(innerArticle);
   });
 }
 

@@ -1,5 +1,5 @@
 import { IPodcast } from './IPodcast';
 
-export interface ISSRResponse {
+export interface ISRResponse {
   programs: IPodcast[];
 }
