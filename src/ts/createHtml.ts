@@ -1,72 +1,67 @@
 import { IPodcast } from './models/IPodcast';
 import { getPodcasts } from './services/api';
 
-const podcastContainer: HTMLDivElement = document.querySelector(
+const podcastWrapper: HTMLDivElement = document.querySelector(
   '.podcast-collection'
 ) as HTMLDivElement;
 
-function createInnerArticle() {
-  const innerArticle: HTMLElement = document.createElement('article');
-  innerArticle.setAttribute('class', 'podcast');
-  return innerArticle;
+function createPodcastContainer() {
+  const podcast: HTMLElement = document.createElement('article');
+  podcast.classList.add('podcast');
+  return podcast;
 }
 
-function createTextDiv() {
-  const textDiv: HTMLDivElement = document.createElement('div');
-  textDiv.setAttribute('class', 'podcast__detailsContainer');
-  return textDiv;
+function createTextContainer() {
+  const detailsContainer: HTMLDivElement = document.createElement('div');
+  detailsContainer.classList.add('podcast__detailsContainer');
+  return detailsContainer;
 }
 
-function createLink(url: string) {
-  const linkPlacement: HTMLAnchorElement = document.createElement('a');
-  const linkText: Text = document.createTextNode('Lyssna här');
-  linkPlacement.setAttribute('href', url);
-  linkPlacement.classList.add('podcast__programUrl');
-  linkPlacement.appendChild(linkText);
-  return linkPlacement;
+function createTitle(podTitle: string) {
+  const title: HTMLHeadingElement = document.createElement('h2');
+  title.classList.add('podcast__title');
+  title.innerText = podTitle;
+  return title;
 }
 
-function createImg(image: string) {
-  const imgPlacement: HTMLImageElement = document.createElement('img');
-  imgPlacement.setAttribute('src', image);
-  imgPlacement.setAttribute('width', '100');
-  imgPlacement.setAttribute('height', '100');
-  imgPlacement.classList.add('podcast__image');
-  return imgPlacement;
+function createDescription(desc: string) {
+  const description: HTMLParagraphElement = document.createElement('p');
+  description.classList.add('podcast__description');
+  description.innerText = desc;
+  return description;
 }
 
-function createP(description: string) {
-  const descPlacement: HTMLParagraphElement = document.createElement('p');
-  const desc: Text = document.createTextNode(description);
-  descPlacement.classList.add('podcast__description');
-  descPlacement.appendChild(desc);
-  return descPlacement;
+function createProgramUrl(url: string) {
+  const programUrl: HTMLAnchorElement = document.createElement('a');
+  programUrl.setAttribute('href', url);
+  programUrl.classList.add('podcast__programUrl');
+  programUrl.innerText = 'Lyssna här';
+  return programUrl;
 }
 
-function createHeader(name: string) {
-  const headerPlacement: HTMLHeadingElement = document.createElement('h2');
-  const programName: Text = document.createTextNode(name);
-  headerPlacement.classList.add('podcast__title');
-  headerPlacement.appendChild(programName);
-  return headerPlacement;
+function createImage(imageUrl: string) {
+  const image: HTMLImageElement = document.createElement('img');
+  image.setAttribute('src', imageUrl);
+  image.classList.add('podcast__image');
+  return image;
 }
 
 export async function createHtml() {
   const podcasts: IPodcast[] = await getPodcasts();
-  podcasts.forEach((podcast) => {
-    let innerArticle: HTMLElement = createInnerArticle();
-    let imgPlacement: HTMLImageElement = createImg(podcast.socialimage);
-    let textDiv: HTMLDivElement = createTextDiv();
-    let headerPlacement: HTMLHeadingElement = createHeader(podcast.name);
-    let descPlacement: HTMLParagraphElement = createP(podcast.description);
-    let linkPlacement: HTMLAnchorElement = createLink(podcast.programurl);
+  podcasts.forEach((pod) => {
+    let podcast: HTMLElement = createPodcastContainer();
+    let image: HTMLImageElement = createImage(pod.socialimage);
+    let detailsContainer: HTMLDivElement = createTextContainer();
+    let title: HTMLHeadingElement = createTitle(pod.name);
+    let description: HTMLParagraphElement = createDescription(pod.description);
+    let programUrl: HTMLAnchorElement = createProgramUrl(pod.programurl);
 
-    innerArticle.appendChild(imgPlacement);
-    innerArticle.appendChild(textDiv);
-    textDiv.appendChild(headerPlacement);
-    textDiv.appendChild(descPlacement);
-    textDiv.appendChild(linkPlacement);
-    podcastContainer.appendChild(innerArticle);
+    podcast.appendChild(image);
+    podcast.appendChild(detailsContainer);
+    detailsContainer.appendChild(title);
+    detailsContainer.appendChild(description);
+    detailsContainer.appendChild(programUrl);
+    podcastWrapper.appendChild(podcast);
   });
 }
 
