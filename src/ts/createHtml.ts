@@ -1,5 +1,5 @@
 import { IPodcast } from './models/IPodcast';
-import { getPodcasts } from './services/api';
+import { getPodcastsFromAPI } from './services/podcastService';
 
 const podcastWrapper: HTMLDivElement = document.querySelector(
   '.podcast-collection'
@@ -47,7 +47,7 @@ function createImage(imageUrl: string) {
 }
 
 export async function createHtml() {
-  const podcasts: IPodcast[] = await getPodcasts();
+  const podcasts: IPodcast[] = await getPodcastsFromAPI();
   podcasts.forEach((pod) => {
     let podcast: HTMLElement = createPodcastContainer();
     let image: HTMLImageElement = createImage(pod.socialimage);
