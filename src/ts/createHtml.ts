@@ -39,9 +39,10 @@ function createProgramUrl(url: string) {
   return programUrl;
 }
 
-function createImage(imageUrl: string) {
+function createImage(imageUrl: string, title: string) {
   const image: HTMLImageElement = document.createElement('img');
   image.setAttribute('src', imageUrl);
+  image.setAttribute('alt', `cover photo for podcast ${title}`);
   image.classList.add('podcast__image');
   return image;
 }
@@ -50,7 +51,7 @@ export async function createHtml() {
   const podcasts: IPodcast[] = await getPodcastsFromAPI();
   podcasts.forEach((pod) => {
     let podcast: HTMLElement = createPodcastContainer();
-    let image: HTMLImageElement = createImage(pod.socialimage);
+    let image: HTMLImageElement = createImage(pod.socialimage, pod.name);
     let detailsContainer: HTMLDivElement = createTextContainer();
     let title: HTMLHeadingElement = createTitle(pod.name);
     let description: HTMLParagraphElement = createDescription(pod.description);
