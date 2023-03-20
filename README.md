@@ -9,7 +9,7 @@ G
 - [x] Språk
 - [ ] Rensa loggning
 - [ ] Dokumentation
-- [ ] Tillgänglighet (bilder)
+- [x] Tillgänglighet (bilder)
 - [x] Refaktorera funktioner
 - [ ] Eliminera onödig kod
 - [x] Rensa bort kod som inte ska sättas
