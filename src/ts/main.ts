@@ -1,9 +1,9 @@
 import { createHtml } from './createHtml';
 import { toggleLightMode } from './toggleDarkmode';
 
-function init() {
+function init(): void {
   toggleLightMode();
-  createHtml();
+  void createHtml();
 }
 
 init();
