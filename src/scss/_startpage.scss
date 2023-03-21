@@ -1,11 +1,13 @@
+@use 'variables' as var;
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var.$color-primary-light;
+  background-color: var.$color-primary-dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -50,7 +52,7 @@ body {
   }
 
   &__programUrl {
-    color: rgba(255, 255, 255, 0.87);
+    color: var.$color-primary-light;
     cursor: pointer;
 
     &:active,
@@ -62,21 +64,9 @@ body {
 
 .darkmode {
   background-color: antiquewhite;
-  color: #242424;
+  color: var.$color-primary-dark;
 
   .podcast__programUrl {
-    color: #242424;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .podcast-collection {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .podcast-collection {
-    grid-template-columns: 1fr 1fr 1fr;
+    color: var.$color-primary-dark;
   }
 }

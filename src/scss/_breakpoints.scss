@@ -1,0 +1,12 @@
+@media screen and (min-width: 1000px) {
+  .podcast-collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .podcast-collection {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
