@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "types": ["vite/client"],
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "WebWorker"],
@@ -17,5 +18,4 @@
     "strictNullChecks": true,
   },
   "include": ["src", ".eslintrc.cjs"],
-  "types": ["vite/client"],
 }

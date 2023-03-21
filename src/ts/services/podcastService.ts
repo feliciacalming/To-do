@@ -3,13 +3,13 @@ import type { IPodcast } from '../models/IPodcast';
 import type { ISRResponse } from '../models/ISRResponse';
 
 export async function getPodcastsFromAPI(): Promise<IPodcast[]> {
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiUrl: string = import.meta.env.VITE_API_URL as string;
 
   try {
-    const response = await axios.get<ISRResponse>(apiKey);
+    const response = await axios.get<ISRResponse>(apiUrl);
     return response.data.programs;
   } catch (error) {
-    console.error('nått blev fel:', error);
+    console.log(error);
     return [];
   }
 }
