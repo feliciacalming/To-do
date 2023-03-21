@@ -2,7 +2,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_APP_API: string;
+  readonly VITE_API_KEY: string;
+  readonly VITE_DEBUGGING: string;
   // more env variables...
 }
 
