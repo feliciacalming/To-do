@@ -63,5 +63,3 @@ export async function createHtml(): Promise<void> {
     podcastWrapper.appendChild(podcast);
   });
 }
-
-export default createHtml;
