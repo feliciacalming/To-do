@@ -4,16 +4,14 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: var.$color-primary-light;
   background-color: var.$color-primary-dark;
-
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .podcast-page-container {
@@ -57,7 +55,7 @@ body {
 
     &:active,
     &:hover {
-      color: rgb(85, 85, 218);
+      color: #5555da;
     }
   }
 }
@@ -66,7 +64,7 @@ body {
   background-color: antiquewhite;
   color: var.$color-primary-dark;
 
-  .podcast__programUrl {
+  .a {
     color: var.$color-primary-dark;
   }
 }

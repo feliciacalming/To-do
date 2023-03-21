@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite ./src",
     "build": "vite build ./src",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "stylelint": "npx stylelint \"**/*.scss\""
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",
@@ -21,6 +22,9 @@
     "npm": "^9.6.2",
     "prettier": "2.8.4",
     "sass": "^1.59.2",
+    "stylelint": "^15.2.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-config-standard-scss": "^7.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.1.0"
   },
