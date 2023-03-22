@@ -68,3 +68,10 @@ body {
 .darkmode a {
   color: var.$color-primary-light;
 }
+
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
