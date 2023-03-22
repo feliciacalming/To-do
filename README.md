@@ -13,7 +13,7 @@ G
 - [x] Refaktorera funktioner
 - [x] Eliminera onödig kod
 - [x] Rensa bort kod som inte ska sättas
-- [ ] Refaktorera namngivning
+- [x] Refaktorera namngivning
 
 VG
 
@@ -25,5 +25,5 @@ VG
 - [ ] Hantera fel i API-anropet
 - [ ] Gör en Lighthouse-analys
 - [ ] Läs av utvecklingsmiljön
-- [ ] Enhetlig syntax i CSS:en
+- [x] Enhetlig syntax i CSS:en
 - [ ] Publicera sidan på GitHub pages
