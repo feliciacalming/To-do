@@ -1,5 +1,7 @@
 import type { IPodcast } from './models/IPodcast';
+import { mockResponse } from './helpers/mockResponse';
 import { getPodcastsFromAPI } from './services/podcastService';
+import { log } from './helpers/log';
 
 const podcastWrapper: HTMLDivElement = document.querySelector('.podcast-collection') as HTMLDivElement;
 
@@ -46,7 +48,17 @@ function createImage(imageUrl: string, title: string): HTMLImageElement {
 }
 
 export async function createHtmlForPodcasts(): Promise<void> {
-  const podcasts: IPodcast[] = await getPodcastsFromAPI();
+  let podcasts: IPodcast[];
+
+  if (import.meta.env.DEV && import.meta.env.VITE_USE_AXIOS === 'false') {
+    podcasts = mockResponse;
+    log(
+      'Attention! You are now in developer mode using mock data. Change VITE_USE_AXIOS to "true" in .env to fetch the real data with axios.'
+    );
+  } else {
+    podcasts = await getPodcastsFromAPI();
+  }
+
   podcasts.forEach(pod => {
     const podcast: HTMLElement = createPodcastContainer();
     const image: HTMLImageElement = createImage(pod.socialimage, pod.name);
