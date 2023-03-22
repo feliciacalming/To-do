@@ -45,7 +45,7 @@ function createImage(imageUrl: string, title: string): HTMLImageElement {
   return image;
 }
 
-export async function createHtml(): Promise<void> {
+export async function createHtmlForPodcasts(): Promise<void> {
   const podcasts: IPodcast[] = await getPodcastsFromAPI();
   podcasts.forEach(pod => {
     const podcast: HTMLElement = createPodcastContainer();
