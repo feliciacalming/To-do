@@ -8,6 +8,8 @@ This was an assignment in the course 'Work methodologies for developers' as a pa
 
 The application shows information about the podcasts in SR's humor category, including cover photo, podcast title, description and a link to the program. It is possible to choose whether you want to view the site in light or dark mode. The data is retrieved from an API using axios.
 
+<img width="808" alt="SR-Humorprogram" src="https://user-images.githubusercontent.com/113439720/227590202-4c3921fe-9ec4-48f9-aa66-1e0d8647df07.png">
+
 ### Tech Stack
 
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
