@@ -60,4 +60,4 @@ VG
 - [ ] Execute a Lighthouse-analysis
 - [x] Add feature flag for using mock data instead of real API response
 - [x] Install Stylelint
-- [ ] Publish the project on GitHub pages
+- [x] Publish the project on GitHub pages
