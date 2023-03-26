@@ -53,7 +53,7 @@ VG
 
 - [x] Store the URL to the API in a .env file
 - [x] Create your own console.log function
-- [ ] Execute and accessibility review
+- [ ] Execute an accessibility review
 - [x] Use features in Sass
 - [ ] Remove unused packages in package.json
 - [x] Handle errors in API request
