@@ -42,7 +42,7 @@ function createProgramUrl(url: string): HTMLAnchorElement {
 function createImage(imageUrl: string, title: string): HTMLImageElement {
   const image: HTMLImageElement = document.createElement('img');
   image.setAttribute('src', imageUrl);
-  image.setAttribute('alt', `cover photo for podcast ${title}`);
+  image.setAttribute('alt', `Omslagsbild för podcasten ${title}`);
   image.classList.add('podcast__image');
   return image;
 }
